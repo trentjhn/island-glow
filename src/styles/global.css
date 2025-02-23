@@ -1,0 +1,35 @@
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden; /* Prevent double scrolling */
+  }
+  
+  /* Apply scroll snap to the main container */
+  .main-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll; /* Ensure the container is scrollable */
+    height: 100vh; /* Take full screen height */
+  }
+  
+  /* Ensure sections take full viewport height */
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+  }
+
+  /* Hide scrollbar for Chrome, Safari, and Edge */
+.main-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .main-container {
+    scrollbar-width: none;
+  }
+  
+  /* Ensure scrolling still works */
+  .main-container {
+    overflow-y: scroll;
+  }
