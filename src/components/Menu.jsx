@@ -54,7 +54,7 @@ export default function Menu() {
         alt="Featured Smoothie"
         className={`absolute drop-shadow-lg ${
           isMobile 
-            ? "w-[55%] bottom-[5%] left-[50%] transform -translate-x-1/2"  // Mobile: Bigger & Centered
+            ? "w-[55%] bottom-[5%] left-[25%] transform -translate-x-1/2"  // Mobile: Bigger & Centered
             : isTablet
               ? "w-[20%] bottom-[10%] left-[70%] transform -translate-x-1/2" // Tablet: Slightly Smaller & Adjusted Position
               : "right-[3%] bottom-[32%] w-[24%]"  // Desktop: Default

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Import background and assets
@@ -15,6 +15,18 @@ const fruitImages = [
 ];
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Detect mobile screens
+    };
+
+    handleResize(); // Set on first load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
       className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden px-6"
@@ -83,14 +95,18 @@ export default function Hero() {
         </motion.a>
       </div>
 
-      {/* Floating Fruits */}
-      <div className="absolute bottom-0 w-full flex justify-between px-12 pb-8 z-10">
+      {/* Floating Fruits - Adjusted for Mobile */}
+      <div
+        className={`absolute bottom-0 w-full flex ${
+          isMobile ? "justify-center space-x-2 px-4 pb-8" : "justify-between px-12 pb-8"
+        } z-10`}
+      >
         {fruitImages.map((fruit, index) => (
           <motion.img
             key={index}
             src={fruit}
             alt={`Fruit ${index}`}
-            className="h-20 md:h-24"
+            className={`${isMobile ? "h-12" : "h-20 md:h-24"}`} // Adjusted size for mobile
             initial={{ y: 4 }}
             animate={{ y: [-2, 2, -2] }}
             transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", delay: index * 0.1 }}
