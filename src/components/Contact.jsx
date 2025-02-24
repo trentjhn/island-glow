@@ -46,7 +46,7 @@ export default function Contact() {
 
         {/* Instagram Link */}
         <a
-          href="https://www.instagram.com/islandglowaz"
+          href="https://www.instagram.com/islandglowsmoothieaz"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-flex items-center space-x-3 text-lg font-semibold text-gray-900 hover:text-yellow-500 transition"
